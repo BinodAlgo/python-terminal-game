@@ -71,3 +71,33 @@ def take_player_input(player, board):
 # Update game board
 def update_board(player, board, row, col):
   board[row][col] = 'X' if player == 1 else 'O'
+
+
+# Main game loop
+def main():
+  # Player 1
+  player = 1
+  board = initialize_board()
+  while True:
+    # Display the game board inside the infinite loop
+   display_game_board(board)
+   # Take row and column number
+   row, col = take_player_input(player, board)
+   # Update game board
+   update_board(player, board, row, col)
+
+   # Check the result for winner
+   result = check_winner(board)
+
+   if result is not None:
+     display_game_board(board)
+     if result == "Draw":
+       print("It's a draw.")
+     else:
+       print(f"Player {player} wins!")
+
+      # Break out of the loop
+     break
+
+    # Switch between player 1 and player 2
+   player = 3 - player
