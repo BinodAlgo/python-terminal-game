@@ -3,8 +3,25 @@ game_name = "Python"
 print("\n", "-"*(18+len(game_name)), "\n")
 print("*"*9, "Tik-Tac-Toe", "*"*9)
 print("\n", "-"*(18+len(game_name)), "\n")
-# Welcome players
-print("Welcome Players, Game Started !!")
+
+# Create a game menu 
+def game_menu():
+  while True:
+    print("Welcome to Tic-tac-toe!")
+    print("1. Start a new game")
+    print("2. View game rules")
+    print("3. Exit")
+    choice = input("Please enter your choice (1/2/3): ")
+    if choice == "1":
+      main()
+    elif choice == "2":
+      display_game_rules()
+
+    elif choice == "3":
+      print("Thanks for playing! Goodbye !!")
+      break
+    else:
+      print("Invalid choice. Please enter your valid choice (1/2/3)")
 
 # Initialize game board where players can play with eachother
 def initialize_board():
@@ -23,6 +40,15 @@ def display_game_board(board):
     print(" | ".join(board[i]))
     if i < 2:
       print("-"*9)
+
+# Display game rules 
+def display_game_rules():
+  print("\nTic-tac-toe Game Rules:")
+  print("1. The game is played on a 3x3 grid.")
+  print("2. Player 1 is 'X', and Player 2 is 'O'.")
+  print("3. Players take turns placing their symbol on an empty cell.")
+  print("4. The first player to get 3 of their symbols in a row (horizontally, vertically, or diagonally) wins.")
+  print("5. If the grid is filled completely and no player has 3 symbols in a row, the game ends in a draw.\n")
 
 
 # Check the winner of the game
@@ -105,4 +131,7 @@ def main():
 
 if __name__ == "__main__":
   # Start the game here
-  main()
+  if(game_menu() == 1):
+   main()
+  elif(game_menu() == 2):
+
