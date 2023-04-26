@@ -131,7 +131,5 @@ def main():
 
 if __name__ == "__main__":
   # Start the game here
-  if(game_menu() == 1):
-   main()
-  elif(game_menu() == 2):
+  game_menu()
 
