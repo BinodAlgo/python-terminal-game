@@ -1,3 +1,5 @@
+import random 
+
 # Python Terminal Game - Tik Tac Toe 
 game_name = "Python"
 print("\n", "-"*(18+len(game_name)), "\n")
@@ -74,6 +76,11 @@ def check_winner(board):
   return None
 
 
+# Create an AI opponent for single-player mode:
+# Add a function to get a single AI move
+def ai_move(board):
+  empty_cell = [(i,j) for i in range(3) for j in range(3) if board[i][j] == " "]
+  return random.choice(empty_cell)
 
 # Take input from players
 def take_player_input(player, board):
@@ -104,11 +111,21 @@ def main():
   # Player 1
   player = 1
   board = initialize_board()
+  ai_opponent = False
+  opponent_choice = input("Choose your opponent: (1: Human, 2: AI): ")
+  if opponent_choice == "2":
+    ai_opponent = True
   while True:
     # Display the game board inside the infinite loop
    display_game_board(board)
    # Take row and column number
-   row, col = take_player_input(player, board)
+   if not ai_opponent or player == 1:  
+    row, col = take_player_input(player, board)
+
+   else:
+    row,col = ai_move(board)
+    print(f"AI Player {player} chose {row+1},{col+1}")
+    
    # Update game board
    update_board(player, board, row, col)
 
