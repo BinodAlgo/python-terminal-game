@@ -62,10 +62,10 @@ def take_player_input(player, board):
         # rows and cols must be zero index so subtract 1 from row & col
         return row-1, col-1
       else:
-        print("Invalid input. Try again!")
+        raise ValueError("Invalid input. Please enter number between 1 and 3 for row and column.")
 
-    except ValueError:
-        print("Invalid input. Try again!")
+    except ValueError as e:
+        print(e)
 
 
 # Update game board
