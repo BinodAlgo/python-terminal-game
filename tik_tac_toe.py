@@ -101,3 +101,8 @@ def main():
 
     # Switch between player 1 and player 2
    player = 3 - player
+
+
+if __name__ == "__main__":
+  # Start the game here
+  main()
