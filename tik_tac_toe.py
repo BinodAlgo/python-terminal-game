@@ -12,3 +12,15 @@ def initialize_board():
   board = [[" " for i in range(3)] for j in range(3)]
   return board
 
+# Display game board of 3x3 martix joined by | and ---
+  #   |    |
+  # ----------
+  #   |    | 
+  # ----------
+  #   |    |
+def display_game_board(board):
+   for i in range(len(board)):
+    print(" | ".join(board[i]))
+    if i < 2:
+      print("-"*9)
+
