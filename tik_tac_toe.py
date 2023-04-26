@@ -68,4 +68,6 @@ def take_player_input(player, board):
         print("Invalid input. Try again!")
 
 
-
+# Update game board
+def update_board(player, board, row, col):
+  board[row][col] = 'X' if player == 1 else 'O'
