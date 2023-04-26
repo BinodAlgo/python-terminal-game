@@ -35,7 +35,7 @@ def check_winner(board):
     if horizontal_line_test or vertical_line_test:
       return board[i][i]
 
-    # Check if player has cross win from top left to bottom right
+  # Check if player has cross win from top left to bottom right
   cross_line_test1 = board[0][0] == board[1][1] == board[2][2] != " "
   # Check if player has cross win from top right to bottom left.
   cross_line_test2 = board[0][2] == board[1][1] == board[2][0] != " "
@@ -47,4 +47,25 @@ def check_winner(board):
     return "Draw"
   return None
 
-  
+
+
+# Take input from players
+def take_player_input(player, board):
+  # Run infinite loop unless player give invalid input
+  while True:
+    row, col = map(int, input(
+        f"Player {player} ({'X' if player==1 else 'O'}), enter row and column(1-3) separated by space: ").split())
+    try:
+
+      # Check if rows and columns are within the empty board cell
+      if 1 <= row <= 3 and 1 <= col <= 3 and board[row-1][col-1] == " ":
+        # rows and cols must be zero index so subtract 1 from row & col
+        return row-1, col-1
+      else:
+        print("Invalid input. Try again!")
+
+    except ValueError:
+        print("Invalid input. Try again!")
+
+
+
